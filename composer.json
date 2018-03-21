@@ -1,0 +1,34 @@
+{
+    "name": "kiwi-suite/asset",
+    "description": "kiwi-suite/asset",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Thomas Payer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "kiwi-suite/contract": "dev-develop",
+        "kiwi-suite/project-uri": "dev-develop",
+        "symfony/asset": "^2.7",
+        "ocramius/package-versions": "^1.1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0.6",
+        "friendsofphp/php-cs-fixer": "^2.5",
+        "php-coveralls/php-coveralls": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "KiwiSuite\\Asset\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KiwiSuiteMisc\\Asset\\": "tests/misc/",
+            "KiwiSuiteTest\\Asset\\": "tests/src/"
+        }
+    }
+}
