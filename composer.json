@@ -12,7 +12,7 @@
         "php": "^7.1",
         "kiwi-suite/contract": "dev-develop",
         "kiwi-suite/project-uri": "dev-develop",
-        "symfony/asset": "^2.7",
+        "symfony/asset": "^4.1",
         "ocramius/package-versions": "^1.1.1"
     },
     "require-dev": {
