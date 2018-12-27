@@ -1,17 +1,17 @@
 {
-    "name": "kiwi-suite/asset",
-    "description": "kiwi-suite/asset",
+    "name": "ixocreate/asset",
+    "description": "Asset for IXOCREATE",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Thomas Payer"
+            "name": "IXOCREATE"
         }
     ],
     "require": {
         "php": "^7.1",
-        "kiwi-suite/contract": "dev-develop",
-        "kiwi-suite/project-uri": "dev-develop",
+        "ixocreate/contract": "dev-develop",
+        "ixocreate/project-uri": "dev-develop",
         "symfony/asset": "^4.1",
         "ocramius/package-versions": "^1.1.1"
     },
@@ -30,5 +30,8 @@
             "IxocreateMisc\\Asset\\": "tests/misc/",
             "IxocreateTest\\Asset\\": "tests/src/"
         }
+    },
+    "scripts": {
+        "fix-cs": "vendor/friendsofphp/php-cs-fixer/php-cs-fixer fix --config vendor/ixocreate/coding-standard/.php_cs"
     }
 }
