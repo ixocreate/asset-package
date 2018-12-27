@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
-namespace KiwiSuite\Asset;
+namespace Ixocreate\Asset;
 
-use KiwiSuite\Asset\Factory\AssetFactory;
-use KiwiSuite\ServiceManager\ServiceManagerConfigurator;
+use Ixocreate\Asset\Factory\AssetFactory;
+use Ixocreate\ServiceManager\ServiceManagerConfigurator;
 
 /** @var ServiceManagerConfigurator $serviceManager */
 $serviceManager->addFactory(Asset::class, AssetFactory::class);

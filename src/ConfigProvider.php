@@ -1,7 +1,7 @@
 <?php
-namespace KiwiSuite\Asset;
+namespace Ixocreate\Asset;
 
-use KiwiSuite\Contract\Application\ConfigProviderInterface;
+use Ixocreate\Contract\Application\ConfigProviderInterface;
 
 final class ConfigProvider implements ConfigProviderInterface
 {

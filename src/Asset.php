@@ -1,5 +1,5 @@
 <?php
-namespace KiwiSuite\Asset;
+namespace Ixocreate\Asset;
 
 use Symfony\Component\Asset\Packages;
 

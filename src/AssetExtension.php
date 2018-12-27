@@ -1,7 +1,7 @@
 <?php
-namespace KiwiSuite\Asset;
+namespace Ixocreate\Asset;
 
-use KiwiSuite\Contract\Template\ExtensionInterface;
+use Ixocreate\Contract\Template\ExtensionInterface;
 
 final class AssetExtension implements ExtensionInterface
 {

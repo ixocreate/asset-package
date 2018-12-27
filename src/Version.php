@@ -1,7 +1,7 @@
 <?php
-namespace KiwiSuite\Asset;
+namespace Ixocreate\Asset;
 
-use KiwiSuite\Application\ApplicationConfig;
+use Ixocreate\Application\ApplicationConfig;
 use PackageVersions\Versions;
 
 final class Version

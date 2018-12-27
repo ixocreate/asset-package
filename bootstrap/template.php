@@ -1,7 +1,7 @@
 <?php
-namespace KiwiSuite\Asset;
+namespace Ixocreate\Asset;
 
 /** @var TemplateConfigurator $template */
-use KiwiSuite\Template\TemplateConfigurator;
+use Ixocreate\Template\TemplateConfigurator;
 
 $template->addExtension(AssetExtension::class);

@@ -1,13 +1,13 @@
 <?php
-namespace KiwiSuite\Asset\Factory;
+namespace Ixocreate\Asset\Factory;
 
-use KiwiSuite\Application\ApplicationConfig;
-use KiwiSuite\Asset\Asset;
-use KiwiSuite\Asset\Version;
-use KiwiSuite\Config\Config;
-use KiwiSuite\Contract\ServiceManager\FactoryInterface;
-use KiwiSuite\Contract\ServiceManager\ServiceManagerInterface;
-use KiwiSuite\ProjectUri\ProjectUri;
+use Ixocreate\Application\ApplicationConfig;
+use Ixocreate\Asset\Asset;
+use Ixocreate\Asset\Version;
+use Ixocreate\Config\Config;
+use Ixocreate\Contract\ServiceManager\FactoryInterface;
+use Ixocreate\Contract\ServiceManager\ServiceManagerInterface;
+use Ixocreate\ProjectUri\ProjectUri;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Asset\UrlPackage;
 use Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy;
