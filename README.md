@@ -1,23 +1,21 @@
 **This is a draft. Don't use in production**
 
-# kiwi-suite/asset
+# ixocreate/asset
 
-kiwi-suite/asset
+ixocreate/asset
 
-[![Build Status](https://travis-ci.org/kiwi-suite/asset.svg?branch=master)](https://travis-ci.org/kiwi-suite/asset)
-[![Coverage Status](https://coveralls.io/repos/github/kiwi-suite/asset/badge.svg?branch=develop)](https://coveralls.io/github/kiwi-suite/asset?branch=develop)
-[![Packagist](https://img.shields.io/packagist/v/kiwi-suite/asset.svg)](https://packagist.org/packages/kiwi-suite/asset)
-[![Packagist Pre Release](https://img.shields.io/packagist/vpre/kiwi-suite/asset.svg)](https://packagist.org/packages/kiwi-suite/asset)
-[![Packagist](https://img.shields.io/packagist/l/kiwi-suite/asset.svg)](https://packagist.org/packages/kiwi-suite/asset)
+[![Build Status](https://travis-ci.org/ixocreate/asset.svg?branch=master)](https://travis-ci.org/ixocreate/asset)
+[![Coverage Status](https://coveralls.io/repos/github/ixocreate/asset/badge.svg?branch=develop)](https://coveralls.io/github/ixocreate/asset?branch=develop)
+[![Packagist](https://img.shields.io/packagist/v/ixocreate/asset.svg)](https://packagist.org/packages/ixocreate/asset)
+[![Packagist Pre Release](https://img.shields.io/packagist/vpre/ixocreate/asset.svg)](https://packagist.org/packages/ixocreate/asset)
+[![Packagist](https://img.shields.io/packagist/l/ixocreate/asset.svg)](https://packagist.org/packages/ixocreate/asset)
 
-## Installation
-
-The suggested installation method is via [composer](https://getcomposer.org/):
+Install the package via composer:
 
 ```sh
-php composer.phar require kiwi-suite/asset
+composer require ixocreate/asset
 ```
 
 ## License
 
-kiwi-suite/asset is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT) - see the `LICENSE` file for details
+The MIT License (MIT). Please see [LICENSE](LICENSE) for more information.
