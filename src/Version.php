@@ -1,4 +1,12 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
+ * @license MIT License
+ */
+
+declare(strict_types=1);
+
 namespace Ixocreate\Asset;
 
 use Ixocreate\Application\ApplicationConfig;
@@ -43,22 +51,21 @@ final class Version
     private function generateVersion(): void
     {
         if ($this->applicationConfig->isDevelopment()) {
-            $this->version = sha1(uniqid());
+            $this->version = \sha1(\uniqid());
 
             return;
         }
 
         try {
             $packageVersion = Versions::getVersion(Versions::ROOT_PACKAGE_NAME);
-            if (strpos($packageVersion, '@') !== false) {
-                $this->version = substr($packageVersion, strpos($packageVersion, '@'));
+            if (\mb_strpos($packageVersion, '@') !== false) {
+                $this->version = \mb_substr($packageVersion, \mb_strpos($packageVersion, '@'));
             }
         } catch (\Exception $e) {
-
         }
 
-        if (empty($this->version) || strlen($this->version) !== 40) {
-            $this->version = sha1(uniqid());
+        if (empty($this->version) || \mb_strlen($this->version) !== 40) {
+            $this->version = \sha1(\uniqid());
         }
     }
 }

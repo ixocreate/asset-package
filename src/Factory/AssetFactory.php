@@ -1,4 +1,12 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
+ * @license MIT License
+ */
+
+declare(strict_types=1);
+
 namespace Ixocreate\Asset\Factory;
 
 use Ixocreate\Application\ApplicationConfig;
@@ -23,9 +31,9 @@ final class AssetFactory implements FactoryInterface
      * @param ServiceManagerInterface $container
      * @param $requestedName
      * @param array|null $options
-     * @return mixed
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
+     * @return mixed
      */
     public function __invoke(ServiceManagerInterface $container, $requestedName, array $options = null)
     {
@@ -35,7 +43,7 @@ final class AssetFactory implements FactoryInterface
         $packages = new Packages();
         $assetConfig = $container->get(Config::class)->get('asset', []);
 
-        if(empty($assetConfig['url'])) {
+        if (empty($assetConfig['url'])) {
             //TODO Exception
         }
 
@@ -57,7 +65,7 @@ final class AssetFactory implements FactoryInterface
      */
     private function getUrls($urls): array
     {
-        if (!is_array($urls)) {
+        if (!\is_array($urls)) {
             $urls = (array) $urls;
         }
 
@@ -68,7 +76,7 @@ final class AssetFactory implements FactoryInterface
                 continue;
             }
 
-            $result[] = rtrim((string) $this->projectUri->getMainUrl(), '/') . '/' . ltrim($url, '/');
+            $result[] = \rtrim((string) $this->projectUri->getMainUrl(), '/') . '/' . \ltrim($url, '/');
         }
 
         return $result;
@@ -80,6 +88,6 @@ final class AssetFactory implements FactoryInterface
      */
     private function isAbsoluteUrl($url)
     {
-        return (strpos($url, '://') !== false) || (substr($url, 0, 2) === '//');
+        return (\mb_strpos($url, '://') !== false) || (\mb_substr($url, 0, 2) === '//');
     }
 }

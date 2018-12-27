@@ -1,4 +1,10 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
+ * @license MIT License
+ */
+
 declare(strict_types=1);
 
 namespace Ixocreate\Asset;
@@ -10,7 +16,6 @@ use Ixocreate\Contract\ServiceManager\ServiceManagerInterface;
 
 final class Package implements PackageInterface
 {
-
     /**
      * @param ConfiguratorRegistryInterface $configuratorRegistry
      */
@@ -39,7 +44,7 @@ final class Package implements PackageInterface
     public function getConfigProvider(): ?array
     {
         return [
-            ConfigProvider::class
+            ConfigProvider::class,
         ];
     }
 
