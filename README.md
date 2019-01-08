@@ -1,5 +1,3 @@
-**This is a draft. Don't use in production**
-
 # ixocreate/asset
 
 ixocreate/asset
@@ -10,10 +8,19 @@ ixocreate/asset
 [![Packagist Pre Release](https://img.shields.io/packagist/vpre/ixocreate/asset.svg)](https://packagist.org/packages/ixocreate/asset)
 [![Packagist](https://img.shields.io/packagist/l/ixocreate/asset.svg)](https://packagist.org/packages/ixocreate/asset)
 
+## Installation
+
 Install the package via composer:
 
 ```sh
 composer require ixocreate/asset
+```
+
+## Testing
+
+```sh
+composer install --dev
+phpunit
 ```
 
 ## License
