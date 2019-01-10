@@ -8,10 +8,13 @@
             "name": "IXOCREATE"
         }
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "^7.1",
-        "ixocreate/contract": "dev-develop",
-        "ixocreate/project-uri": "dev-develop",
+        "ixocreate/contract": "=1.0.0-alpha1",
+        "ixocreate/application": "=1.0.0-alpha1",
+        "ixocreate/project-uri": "=1.0.0-alpha1",
         "symfony/asset": "^4.1",
         "ocramius/package-versions": "^1.1.1"
     },
