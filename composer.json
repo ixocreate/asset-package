@@ -12,9 +12,9 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.1",
-        "ixocreate/contract": "=1.0.0-alpha2",
-        "ixocreate/application": "=1.0.0-alpha2",
-        "ixocreate/project-uri": "=1.0.0-alpha2",
+        "ixocreate/contract": "dev-develop",
+        "ixocreate/application": "dev-develop",
+        "ixocreate/project-uri": "dev-develop",
         "symfony/asset": "^4.1",
         "ocramius/package-versions": "^1.1.1"
     },
