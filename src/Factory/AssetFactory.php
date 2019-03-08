@@ -19,6 +19,7 @@ use Ixocreate\ProjectUri\ProjectUri;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Asset\UrlPackage;
 use Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy;
+use Zend\ServiceManager\Exception\InvalidArgumentException;
 
 final class AssetFactory implements FactoryInterface
 {
@@ -44,7 +45,7 @@ final class AssetFactory implements FactoryInterface
         $assetConfig = $container->get(Config::class)->get('asset', []);
 
         if (empty($assetConfig['url'])) {
-            //TODO Exception
+            throw new InvalidArgumentException("no Url set in Config");
         }
 
         $urls = $this->getUrls($assetConfig['url']);
@@ -55,7 +56,6 @@ final class AssetFactory implements FactoryInterface
             new StaticVersionStrategy($version->getVersion(), $format)
         );
         $packages->setDefaultPackage($urlPackage);
-
         return new Asset($packages);
     }
 
