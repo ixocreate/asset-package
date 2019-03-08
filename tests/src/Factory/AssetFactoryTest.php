@@ -1,4 +1,10 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
+ * @license MIT License
+ */
+
 declare(strict_types=1);
 
 namespace IxocreateTest\Asset;
@@ -37,7 +43,7 @@ class AssetFactoryTest extends TestCase
         /** @var  Asset $asset */
         $asset = $assetFactory($this->serviceManagerMock($configUrl), 'Test');
 
-        $url = \substr($asset->getUrl('test'),0,37);
+        $url = \mb_substr($asset->getUrl('test'), 0, 37);
         $this->assertSame('https://spielwiese.ixocreate.com/test', $url);
     }
 
@@ -88,7 +94,7 @@ class AssetFactoryTest extends TestCase
     {
         $serviceManagerMock = $this->createMock(ServiceManagerInterface::class);
         $serviceManagerMock->method('get')
-            ->willReturnCallback(function($request) use ($configUrl) {
+            ->willReturnCallback(function ($request) use ($configUrl) {
                 switch ($request) {
                     case ApplicationConfig::class:
                         return new ApplicationConfig(new ApplicationConfigurator('/'));

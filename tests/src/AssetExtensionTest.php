@@ -1,4 +1,10 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
+ * @license MIT License
+ */
+
 declare(strict_types=1);
 
 namespace IxocreateTest\Asset;
@@ -23,7 +29,7 @@ class AssetExtensionTest extends TestCase
         $asset = new Asset($stub);
         $assetExtension = new AssetExtension($asset);
 
-        $this->assertInstanceOf(AssetExtension::class ,$assetExtension);
+        $this->assertInstanceOf(AssetExtension::class, $assetExtension);
 
         $this->assertSame('asset', $assetExtension->getName());
         $this->assertSame('https://Ixocreate/Asset/', $assetExtension('Asset/'));

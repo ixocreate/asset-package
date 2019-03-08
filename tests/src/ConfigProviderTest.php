@@ -1,4 +1,10 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
+ * @license MIT License
+ */
+
 declare(strict_types=1);
 
 namespace IxocreateTest\Asset;
@@ -14,6 +20,6 @@ class ConfigProviderTest extends TestCase
 
         $this->assertSame(['asset' => ['url' => [], 'format' => '%1$s?v=%2$s', ], ], $configProvider());
         $this->assertSame('asset', $configProvider->configName());
-        $this->assertStringMatchesFormatFile( __DIR__ . '/../../resources/asset.config.example.php', $configProvider->configContent());
+        $this->assertStringMatchesFormatFile(__DIR__ . '/../../resources/asset.config.example.php', $configProvider->configContent());
     }
 }
