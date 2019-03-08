@@ -1,6 +1,4 @@
-# ixocreate/asset
-
-ixocreate/asset
+# IXOCREATE asset
 
 [![Build Status](https://travis-ci.com/ixocreate/asset.svg?branch=master)](https://travis-ci.com/ixocreate/asset)
 [![Coverage Status](https://coveralls.io/repos/github/ixocreate/asset/badge.svg?branch=develop)](https://coveralls.io/github/ixocreate/asset?branch=develop)
