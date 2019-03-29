@@ -76,7 +76,7 @@ final class AssetFactory implements FactoryInterface
                 continue;
             }
 
-            $result[] = \rtrim((string) $this->projectUri->getMainUrl(), '/') . '/' . \ltrim($url, '/');
+            $result[] = \rtrim((string) $this->projectUri->getMainUri(), '/') . '/' . \ltrim($url, '/');
         }
 
         return $result;
