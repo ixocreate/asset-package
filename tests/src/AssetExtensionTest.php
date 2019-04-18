@@ -7,17 +7,17 @@
 
 declare(strict_types=1);
 
-namespace IxocreateTest\Asset;
+namespace Ixocreate\Test\Asset;
 
-use Ixocreate\Asset\Asset;
-use Ixocreate\Asset\AssetExtension;
+use Ixocreate\Package\Asset\Asset;
+use Ixocreate\Package\Asset\AssetExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Asset\Packages;
 
 class AssetExtensionTest extends TestCase
 {
     /**
-     * @covers \Ixocreate\Asset\AssetExtension
+     * @covers \Ixocreate\Package\Asset\AssetExtension
      */
     public function testAssetExtension()
     {

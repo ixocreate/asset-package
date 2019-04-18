@@ -7,16 +7,16 @@
 
 declare(strict_types=1);
 
-namespace IxocreateTest\Asset;
+namespace Ixocreate\Test\Asset;
 
-use Ixocreate\Asset\Asset;
+use Ixocreate\Package\Asset\Asset;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Asset\Packages;
 
 class AssetTest extends TestCase
 {
     /**
-     * @covers \Ixocreate\Asset\Asset::__construct
+     * @covers \Ixocreate\Package\Asset\Asset::__construct
      */
     public function testAsset()
     {

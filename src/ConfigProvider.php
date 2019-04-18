@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Asset;
+namespace Ixocreate\Package\Asset;
 
-use Ixocreate\Contract\Application\ConfigProviderInterface;
+use Ixocreate\Application\ConfigProviderInterface;
 
 final class ConfigProvider implements ConfigProviderInterface
 {

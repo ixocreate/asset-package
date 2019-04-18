@@ -7,15 +7,15 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Asset\Factory;
+namespace Ixocreate\Package\Asset\Factory;
 
 use Ixocreate\Application\ApplicationConfig;
-use Ixocreate\Asset\Asset;
-use Ixocreate\Asset\Version;
+use Ixocreate\Package\Asset\Asset;
+use Ixocreate\Package\Asset\Version;
 use Ixocreate\Config\Config;
-use Ixocreate\Contract\ServiceManager\FactoryInterface;
-use Ixocreate\Contract\ServiceManager\ServiceManagerInterface;
-use Ixocreate\ProjectUri\ProjectUri;
+use Ixocreate\ServiceManager\FactoryInterface;
+use Ixocreate\ServiceManager\ServiceManagerInterface;
+use Ixocreate\Package\ProjectUri\ProjectUri;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Asset\UrlPackage;
 use Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy;

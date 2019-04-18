@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Asset;
+namespace Ixocreate\Package\Asset;
 
 use Symfony\Component\Asset\Packages;
 

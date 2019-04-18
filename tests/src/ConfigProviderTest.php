@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace IxocreateTest\Asset;
+namespace Ixocreate\Test\Asset;
 
-use Ixocreate\Asset\ConfigProvider;
+use Ixocreate\Package\Asset\ConfigProvider;
 use PHPUnit\Framework\TestCase;
 
 class ConfigProviderTest extends TestCase

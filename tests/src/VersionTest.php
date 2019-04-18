@@ -7,17 +7,17 @@
 
 declare(strict_types=1);
 
-namespace IxocreateTest\Asset;
+namespace Ixocreate\Test\Asset;
 
 use Ixocreate\Application\ApplicationConfig;
 use Ixocreate\Application\ApplicationConfigurator;
-use Ixocreate\Asset\Version;
+use Ixocreate\Package\Asset\Version;
 use PHPUnit\Framework\TestCase;
 
 class VersionTest extends TestCase
 {
     /**
-     * @covers \Ixocreate\Asset\Version::__construct
+     * @covers \Ixocreate\Package\Asset\Version::__construct
      */
     public function testVersion()
     {
@@ -28,7 +28,7 @@ class VersionTest extends TestCase
     }
 
     /**
-     * @covers \Ixocreate\Asset\Version::getVersion
+     * @covers \Ixocreate\Package\Asset\Version::getVersion
      */
     public function testGetVersion()
     {
@@ -40,7 +40,7 @@ class VersionTest extends TestCase
     }
 
     /**
-     * @covers \Ixocreate\Asset\Version::generateVersion
+     * @covers \Ixocreate\Package\Asset\Version::generateVersion
      */
     public function testGenerateVersion()
     {

@@ -1,6 +1,6 @@
 {
     "name": "ixocreate/asset",
-    "description": "Asset for IXOCREATE",
+    "description": "IXOCREATE Asset Package",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -12,26 +12,24 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.1",
-        "ixocreate/contract": "dev-develop",
-        "ixocreate/application": "dev-develop",
-        "ixocreate/project-uri": "dev-develop",
+        "ixocreate/application": "dev-consolidate",
         "symfony/asset": "^4.1",
         "ocramius/package-versions": "^1.1.1"
     },
     "require-dev": {
-        "ixocreate/coding-standard": "^1.0.1",
+        "ixocreate/coding-standard": "^1.0",
         "php-coveralls/php-coveralls": "^2.1",
         "phpunit/phpunit": "^7.0"
     },
     "autoload": {
         "psr-4": {
-            "Ixocreate\\Asset\\": "src/"
+            "Ixocreate\\Package\\Asset\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "IxocreateMisc\\Asset\\": "tests/misc/",
-            "IxocreateTest\\Asset\\": "tests/src/"
+            "Ixocreate\\Misc\\Asset\\": "tests/misc/",
+            "Ixocreate\\Test\\Asset\\": "tests/src/"
         }
     },
     "scripts": {
