@@ -13,9 +13,8 @@ use Ixocreate\Application\ApplicationConfig;
 use Ixocreate\Application\ApplicationConfigurator;
 use Ixocreate\Asset\Package\Asset;
 use Ixocreate\Asset\Package\Factory\AssetFactory;
-use Ixocreate\Config\Config;
+use Ixocreate\Application\Config\Config;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
-use Ixocreate\Application\Uri\ApplicationUri;
 use PHPUnit\Framework\TestCase;
 use Zend\Diactoros\Uri;
 
