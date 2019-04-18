@@ -20,6 +20,7 @@ final class Asset
 
     /**
      * Asset constructor.
+     *
      * @param Packages $packages
      */
     public function __construct(Packages $packages)

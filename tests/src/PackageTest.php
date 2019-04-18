@@ -10,9 +10,8 @@ declare(strict_types=1);
 namespace Ixocreate\Test\Asset;
 
 use Ixocreate\Asset\ConfigProvider;
-use Ixocreate\Asset;
-use Ixocreate\Application\Service\Configurator\ConfiguratorRegistryInterface;
-use Ixocreate\Application\Service\Registry\ServiceRegistryInterface;
+use Ixocreate\Application\ConfiguratorRegistryInterface;
+use Ixocreate\Application\Service\ServiceRegistryInterface;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 use PHPUnit\Framework\TestCase;
 

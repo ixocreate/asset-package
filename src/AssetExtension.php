@@ -20,6 +20,7 @@ final class AssetExtension implements ExtensionInterface
 
     /**
      * AssetExtension constructor.
+     *
      * @param Asset $asset
      */
     public function __construct(Asset $asset)
