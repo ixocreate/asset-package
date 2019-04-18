@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Ixocreate\Test\Asset;
 
-use Ixocreate\Asset\Package\ConfigProvider;
-use Ixocreate\Asset\Package\Package;
+use Ixocreate\Asset\ConfigProvider;
+use Ixocreate\Asset;
 use Ixocreate\Application\Service\Configurator\ConfiguratorRegistryInterface;
 use Ixocreate\Application\Service\Registry\ServiceRegistryInterface;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
@@ -29,7 +29,7 @@ class PackageTest extends TestCase
     }
 
     /**
-     * @covers \Ixocreate\Asset\Package\Package
+     * @covers \Ixocreate\Asset\Package
      */
     public function testConfigure()
     {

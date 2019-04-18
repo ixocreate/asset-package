@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ixocreate\\Asset\\Package\\": "src/"
+            "Ixocreate\\Asset\\": "src/"
         }
     },
     "autoload-dev": {

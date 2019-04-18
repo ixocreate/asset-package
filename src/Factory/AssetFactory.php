@@ -7,11 +7,11 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Asset\Package\Factory;
+namespace Ixocreate\Asset\Factory;
 
 use Ixocreate\Application\ApplicationConfig;
-use Ixocreate\Asset\Package\Asset;
-use Ixocreate\Asset\Package\Version;
+use Ixocreate\Asset\Asset;
+use Ixocreate\Asset\Version;
 use Ixocreate\Application\Config\Config;
 use Ixocreate\ServiceManager\FactoryInterface;
 use Ixocreate\ServiceManager\ServiceManagerInterface;

@@ -11,8 +11,8 @@ namespace Ixocreate\Test\Asset;
 
 use Ixocreate\Application\ApplicationConfig;
 use Ixocreate\Application\ApplicationConfigurator;
-use Ixocreate\Asset\Package\Asset;
-use Ixocreate\Asset\Package\Factory\AssetFactory;
+use Ixocreate\Asset\Asset;
+use Ixocreate\Asset\Factory\AssetFactory;
 use Ixocreate\Application\Config\Config;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 use PHPUnit\Framework\TestCase;
@@ -21,7 +21,7 @@ use Zend\Diactoros\Uri;
 class AssetFactoryTest extends TestCase
 {
     /**
-     * @covers \Ixocreate\Asset\Package\Factory\AssetFactory::__invoke
+     * @covers \Ixocreate\Asset\Factory\AssetFactory::__invoke
      */
     public function testInvoke()
     {
@@ -84,7 +84,7 @@ class AssetFactoryTest extends TestCase
 
         $assetFactory = new AssetFactory();
         /** @var  Asset $asset */
-        $asset = $assetFactory($this->serviceManagerMock($configUrl), 'Ixocreate\Asset\Package\Asset');
+        $asset = $assetFactory($this->serviceManagerMock($configUrl), 'Ixocreate\Asset\Asset');
 
         $this->assertInstanceOf(Asset::class, $asset);
     }

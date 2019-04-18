@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
-namespace Ixocreate\Asset\Package;
+namespace Ixocreate\Asset;
 
-use Ixocreate\Asset\Package\Factory\AssetFactory;
+use Ixocreate\Asset\Factory\AssetFactory;
 use Ixocreate\ServiceManager\ServiceManagerConfigurator;
 
 /** @var ServiceManagerConfigurator $serviceManager */

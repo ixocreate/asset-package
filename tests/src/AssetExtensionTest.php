@@ -9,15 +9,15 @@ declare(strict_types=1);
 
 namespace Ixocreate\Test\Asset;
 
-use Ixocreate\Asset\Package\Asset;
-use Ixocreate\Asset\Package\AssetExtension;
+use Ixocreate\Asset\Asset;
+use Ixocreate\Asset\AssetExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Asset\Packages;
 
 class AssetExtensionTest extends TestCase
 {
     /**
-     * @covers \Ixocreate\Asset\Package\AssetExtension
+     * @covers \Ixocreate\Asset\AssetExtension
      */
     public function testAssetExtension()
     {
