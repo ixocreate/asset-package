@@ -11,18 +11,18 @@ namespace Ixocreate\Test\Asset;
 
 use Ixocreate\Application\ApplicationConfig;
 use Ixocreate\Application\ApplicationConfigurator;
-use Ixocreate\Package\Asset\Asset;
-use Ixocreate\Package\Asset\Factory\AssetFactory;
+use Ixocreate\Asset\Package\Asset;
+use Ixocreate\Asset\Package\Factory\AssetFactory;
 use Ixocreate\Config\Config;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
-use Ixocreate\Package\ProjectUri\ProjectUri;
+use Ixocreate\Application\Uri\ApplicationUri;
 use PHPUnit\Framework\TestCase;
 use Zend\Diactoros\Uri;
 
 class AssetFactoryTest extends TestCase
 {
     /**
-     * @covers \Ixocreate\Package\Asset\Factory\AssetFactory::__invoke
+     * @covers \Ixocreate\Asset\Package\Factory\AssetFactory::__invoke
      */
     public function testInvoke()
     {
@@ -85,7 +85,7 @@ class AssetFactoryTest extends TestCase
 
         $assetFactory = new AssetFactory();
         /** @var  Asset $asset */
-        $asset = $assetFactory($this->serviceManagerMock($configUrl), 'Ixocreate\Package\Asset\Asset');
+        $asset = $assetFactory($this->serviceManagerMock($configUrl), 'Ixocreate\Asset\Package\Asset');
 
         $this->assertInstanceOf(Asset::class, $asset);
     }
@@ -98,8 +98,8 @@ class AssetFactoryTest extends TestCase
                 switch ($request) {
                     case ApplicationConfig::class:
                         return new ApplicationConfig(new ApplicationConfigurator('/'));
-                    case ProjectUri::class:
-                        return new ProjectUri(new Uri('https://spielwiese.ixocreate.test/'), []);
+                    case Uri::class:
+                        return new Uri(new Uri('https://spielwiese.ixocreate.test/'), []);
                     case Config::class:
                         return  new Config($configUrl);
                 }

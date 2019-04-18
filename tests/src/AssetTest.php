@@ -9,14 +9,14 @@ declare(strict_types=1);
 
 namespace Ixocreate\Test\Asset;
 
-use Ixocreate\Package\Asset\Asset;
+use Ixocreate\Asset\Package\Asset;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Asset\Packages;
 
 class AssetTest extends TestCase
 {
     /**
-     * @covers \Ixocreate\Package\Asset\Asset::__construct
+     * @covers \Ixocreate\Asset\Package\Asset::__construct
      */
     public function testAsset()
     {

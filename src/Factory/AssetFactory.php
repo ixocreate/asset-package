@@ -7,15 +7,15 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Asset\Factory;
+namespace Ixocreate\Asset\Package\Factory;
 
 use Ixocreate\Application\ApplicationConfig;
-use Ixocreate\Package\Asset\Asset;
-use Ixocreate\Package\Asset\Version;
+use Ixocreate\Asset\Package\Asset;
+use Ixocreate\Asset\Package\Version;
 use Ixocreate\Config\Config;
 use Ixocreate\ServiceManager\FactoryInterface;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
-use Ixocreate\Package\ProjectUri\ProjectUri;
+use Ixocreate\Application\Uri\ApplicationUri;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Asset\UrlPackage;
 use Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy;
@@ -24,7 +24,7 @@ use Zend\ServiceManager\Exception\InvalidArgumentException;
 final class AssetFactory implements FactoryInterface
 {
     /**
-     * @var ProjectUri
+     * @var ApplicationUri
      */
     private $projectUri;
 
@@ -39,7 +39,7 @@ final class AssetFactory implements FactoryInterface
     public function __invoke(ServiceManagerInterface $container, $requestedName, array $options = null)
     {
         $version = new Version($container->get(ApplicationConfig::class));
-        $this->projectUri = $container->get(ProjectUri::class);
+        $this->projectUri = $container->get(ApplicationUri::class);
 
         $packages = new Packages();
         $assetConfig = $container->get(Config::class)->get('asset', []);

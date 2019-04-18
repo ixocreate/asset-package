@@ -1,7 +1,7 @@
 <?php
-namespace Ixocreate\Package\Asset;
+namespace Ixocreate\Asset\Package;
 
 /** @var TemplateConfigurator $template */
-use Ixocreate\Package\Template\TemplateConfigurator;
+use Ixocreate\Template\Package\TemplateConfigurator;
 
 $template->addExtension(AssetExtension::class);
