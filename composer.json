@@ -13,6 +13,7 @@
     "require": {
         "php": "^7.1",
         "ixocreate/application": "dev-develop",
+        "ixocreate/template-package": "dev-develop",
         "symfony/asset": "^4.1",
         "ocramius/package-versions": "^1.1.1"
     },
