@@ -10,12 +10,12 @@ declare(strict_types=1);
 namespace Ixocreate\Asset\Factory;
 
 use Ixocreate\Application\ApplicationConfig;
+use Ixocreate\Application\Config\Config;
+use Ixocreate\Application\Uri\ApplicationUri;
 use Ixocreate\Asset\Asset;
 use Ixocreate\Asset\Version;
-use Ixocreate\Application\Config\Config;
 use Ixocreate\ServiceManager\FactoryInterface;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
-use Ixocreate\Application\Uri\ApplicationUri;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Asset\UrlPackage;
 use Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy;
@@ -32,8 +32,8 @@ final class AssetFactory implements FactoryInterface
      * @param ServiceManagerInterface $container
      * @param $requestedName
      * @param array|null $options
-     * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
+     * @throws \Psr\Container\ContainerExceptionInterface
      * @return mixed
      */
     public function __invoke(ServiceManagerInterface $container, $requestedName, array $options = null)
@@ -66,7 +66,7 @@ final class AssetFactory implements FactoryInterface
     private function getUrls($urls): array
     {
         if (!\is_array($urls)) {
-            $urls = (array) $urls;
+            $urls = (array)$urls;
         }
 
         $result = [];
@@ -76,7 +76,7 @@ final class AssetFactory implements FactoryInterface
                 continue;
             }
 
-            $result[] = \rtrim((string) $this->projectUri->getMainUri(), '/') . '/' . \ltrim($url, '/');
+            $result[] = \rtrim((string)$this->projectUri->getMainUri(), '/') . '/' . \ltrim($url, '/');
         }
 
         return $result;

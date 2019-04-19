@@ -12,6 +12,7 @@ namespace Ixocreate\Test\Asset;
 use Ixocreate\Asset\ConfigProvider;
 use Ixocreate\Application\Configurator\ConfiguratorRegistryInterface;
 use Ixocreate\Application\Service\ServiceRegistryInterface;
+use Ixocreate\Asset\Package;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 use PHPUnit\Framework\TestCase;
 

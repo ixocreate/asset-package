@@ -11,12 +11,13 @@ namespace Ixocreate\Test\Asset;
 
 use Ixocreate\Application\ApplicationConfig;
 use Ixocreate\Application\ApplicationConfigurator;
+use Ixocreate\Application\Config\Config;
+use Ixocreate\Application\Uri\ApplicationUri;
+use Ixocreate\Application\Uri\ApplicationUriConfigurator;
 use Ixocreate\Asset\Asset;
 use Ixocreate\Asset\Factory\AssetFactory;
-use Ixocreate\Application\Config\Config;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 use PHPUnit\Framework\TestCase;
-use Zend\Diactoros\Uri;
 
 class AssetFactoryTest extends TestCase
 {
@@ -97,11 +98,14 @@ class AssetFactoryTest extends TestCase
                 switch ($request) {
                     case ApplicationConfig::class:
                         return new ApplicationConfig(new ApplicationConfigurator('/'));
-                    case Uri::class:
-                        return new Uri(new Uri('https://spielwiese.ixocreate.test/'), []);
+                    case ApplicationUri::class:
+                        $applicationUriConfigurator = new ApplicationUriConfigurator();
+                        $applicationUriConfigurator->setMainUri('https://example.com');
+                        return new ApplicationUri($applicationUriConfigurator);
                     case Config::class:
-                        return  new Config($configUrl);
+                        return new Config($configUrl);
                 }
+                return null;
             });
         return $serviceManagerMock;
     }
