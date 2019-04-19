@@ -12,8 +12,8 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.1",
-        "ixocreate/application": "dev-develop",
-        "ixocreate/template-package": "dev-develop",
+        "ixocreate/application": "^0.1",
+        "ixocreate/template-package": "^0.1",
         "ocramius/package-versions": "^1.1.1",
         "symfony/asset": "^4.1"
     },
