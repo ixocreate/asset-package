@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Asset;
 
-use Ixocreate\Contract\Application\ConfigProviderInterface;
+use Ixocreate\Application\Config\ConfigProviderInterface;
 
 final class ConfigProvider implements ConfigProviderInterface
 {
@@ -21,5 +21,15 @@ final class ConfigProvider implements ConfigProviderInterface
                 'format' => '%1$s?v=%2$s',
             ],
         ];
+    }
+
+    public function configName(): string
+    {
+        return 'asset';
+    }
+
+    public function configContent(): string
+    {
+        return \file_get_contents(__DIR__ . '/../resources/asset.config.example.php');
     }
 }

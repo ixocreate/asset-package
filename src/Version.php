@@ -26,6 +26,7 @@ final class Version
 
     /**
      * Version constructor.
+     *
      * @param ApplicationConfig $applicationConfig
      */
     public function __construct(ApplicationConfig $applicationConfig)

@@ -10,20 +10,21 @@ declare(strict_types=1);
 namespace Ixocreate\Asset\Factory;
 
 use Ixocreate\Application\ApplicationConfig;
+use Ixocreate\Application\Config\Config;
+use Ixocreate\Application\Uri\ApplicationUri;
 use Ixocreate\Asset\Asset;
 use Ixocreate\Asset\Version;
-use Ixocreate\Config\Config;
-use Ixocreate\Contract\ServiceManager\FactoryInterface;
-use Ixocreate\Contract\ServiceManager\ServiceManagerInterface;
-use Ixocreate\ProjectUri\ProjectUri;
+use Ixocreate\ServiceManager\FactoryInterface;
+use Ixocreate\ServiceManager\ServiceManagerInterface;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Asset\UrlPackage;
 use Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy;
+use Zend\ServiceManager\Exception\InvalidArgumentException;
 
 final class AssetFactory implements FactoryInterface
 {
     /**
-     * @var ProjectUri
+     * @var ApplicationUri
      */
     private $projectUri;
 
@@ -31,20 +32,20 @@ final class AssetFactory implements FactoryInterface
      * @param ServiceManagerInterface $container
      * @param $requestedName
      * @param array|null $options
-     * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
+     * @throws \Psr\Container\ContainerExceptionInterface
      * @return mixed
      */
     public function __invoke(ServiceManagerInterface $container, $requestedName, array $options = null)
     {
         $version = new Version($container->get(ApplicationConfig::class));
-        $this->projectUri = $container->get(ProjectUri::class);
+        $this->projectUri = $container->get(ApplicationUri::class);
 
         $packages = new Packages();
         $assetConfig = $container->get(Config::class)->get('asset', []);
 
         if (empty($assetConfig['url'])) {
-            //TODO Exception
+            throw new InvalidArgumentException("no Url set in Config");
         }
 
         $urls = $this->getUrls($assetConfig['url']);
@@ -55,7 +56,6 @@ final class AssetFactory implements FactoryInterface
             new StaticVersionStrategy($version->getVersion(), $format)
         );
         $packages->setDefaultPackage($urlPackage);
-
         return new Asset($packages);
     }
 
@@ -66,7 +66,7 @@ final class AssetFactory implements FactoryInterface
     private function getUrls($urls): array
     {
         if (!\is_array($urls)) {
-            $urls = (array) $urls;
+            $urls = (array)$urls;
         }
 
         $result = [];
@@ -76,7 +76,7 @@ final class AssetFactory implements FactoryInterface
                 continue;
             }
 
-            $result[] = \rtrim((string) $this->projectUri->getMainUrl(), '/') . '/' . \ltrim($url, '/');
+            $result[] = \rtrim((string)$this->projectUri->getMainUri(), '/') . '/' . \ltrim($url, '/');
         }
 
         return $result;

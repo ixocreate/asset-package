@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Asset;
 
-use Ixocreate\Contract\Template\ExtensionInterface;
+use Ixocreate\Template\Extension\ExtensionInterface;
 
 final class AssetExtension implements ExtensionInterface
 {
@@ -20,6 +20,7 @@ final class AssetExtension implements ExtensionInterface
 
     /**
      * AssetExtension constructor.
+     *
      * @param Asset $asset
      */
     public function __construct(Asset $asset)
