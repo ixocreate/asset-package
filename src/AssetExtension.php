@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Asset;
 
-use Ixocreate\Template\ExtensionInterface;
+use Ixocreate\Template\Extension\ExtensionInterface;
 
 final class AssetExtension implements ExtensionInterface
 {
