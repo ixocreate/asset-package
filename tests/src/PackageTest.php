@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Ixocreate\Test\Asset;
 
-use Ixocreate\Asset\ConfigProvider;
 use Ixocreate\Application\Configurator\ConfiguratorRegistryInterface;
 use Ixocreate\Application\Service\ServiceRegistryInterface;
+use Ixocreate\Asset\ConfigProvider;
 use Ixocreate\Asset\Package;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 use PHPUnit\Framework\TestCase;
@@ -19,19 +19,9 @@ use PHPUnit\Framework\TestCase;
 class PackageTest extends TestCase
 {
     /**
-     * @var Package
-     */
-    private $package;
-
-    public function setUp()
-    {
-        $this->package = new Package();
-    }
-
-    /**
      * @covers \Ixocreate\Asset\Package
      */
-    public function testConfigure()
+    public function testPackage()
     {
         $configuratorRegistry = $this->getMockBuilder(ConfiguratorRegistryInterface::class)->getMock();
         $configuratorRegistry->method('get')->willThrowException(new \InvalidArgumentException('Fail: Package::configure not empty!'));
@@ -49,19 +39,15 @@ class PackageTest extends TestCase
         $serviceManager->method('getFactoryResolver')->willThrowException(new \InvalidArgumentException('Fail: Package::boot not empty!'));
         $serviceManager->method('getServices')->willThrowException(new \InvalidArgumentException('Fail: Package::boot not empty!'));
 
-        $test = new Package();
+        $package = new Package();
+        $package->configure($configuratorRegistry);
+        $package->addServices($serviceRegistry);
+        $package->boot($serviceManager);
 
-        $test->configure($configuratorRegistry);
-        $test->addServices($serviceRegistry);
-        $test->boot($serviceManager);
-
-        $this->assertSame([ConfigProvider::class], $this->package->getConfigProvider());
-        $this->assertNull($this->package->getBootstrapItems());
-        $this->assertSame(
-            \dirname(\dirname(__DIR__)) . '/src/../bootstrap',
-            $this->package->getBootstrapDirectory()
-        );
-        $this->assertNull($this->package->getConfigDirectory());
-        $this->assertNull($this->package->getDependencies());
+        $this->assertSame([ConfigProvider::class], $package->getConfigProvider());
+        $this->assertNull($package->getBootstrapItems());
+        $this->assertDirectoryExists($package->getBootstrapDirectory());
+        $this->assertNull($package->getConfigDirectory());
+        $this->assertNull($package->getDependencies());
     }
 }
