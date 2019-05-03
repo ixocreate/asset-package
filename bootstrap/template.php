@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Asset;
+namespace Ixocreate\Asset\Template;
 
-/** @var TemplateConfigurator $template */
 use Ixocreate\Template\TemplateConfigurator;
 
+/** @var TemplateConfigurator $template */
 $template->addExtension(AssetExtension::class);
