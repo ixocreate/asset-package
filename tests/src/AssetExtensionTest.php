@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace Ixocreate\Test\Asset;
 
 use Ixocreate\Asset\Asset;
-use Ixocreate\Asset\AssetExtension;
+use Ixocreate\Asset\Template\AssetExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Asset\Packages;
 
