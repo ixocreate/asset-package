@@ -1,7 +1,7 @@
 # IXOCREATE Asset Package
 
 [![Build Status](https://travis-ci.com/ixocreate/asset-package.svg?branch=master)](https://travis-ci.com/ixocreate/asset-package)
-[![Coverage Status](https://coveralls.io/repos/github/ixocreate/asset-package/badge.svg?branch=develop)](https://coveralls.io/github/ixocreate/asset-package?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/ixocreate/asset-package/badge.svg?branch=master)](https://coveralls.io/github/ixocreate/asset-package?branch=master)
 [![Packagist](https://img.shields.io/packagist/v/ixocreate/asset-package.svg)](https://packagist.org/packages/ixocreate/asset-package)
 [![PHP Version](https://img.shields.io/packagist/php-v/ixocreate/asset-package.svg)](https://packagist.org/packages/ixocreate/asset-package)
 [![License](https://img.shields.io/github/license/ixocreate/asset-package.svg)](LICENSE)
