@@ -23,6 +23,7 @@ final class Version
      * @var string
      */
     private $version = null;
+
     /**
      * @var string|null
      */
