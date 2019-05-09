@@ -60,7 +60,7 @@ final class Version
         try {
             $packageVersion = Versions::getVersion(Versions::ROOT_PACKAGE_NAME);
             if (\mb_strpos($packageVersion, '@') !== false) {
-                $this->version = \mb_substr($packageVersion, \mb_strpos($packageVersion, '@'));
+                $this->version = \mb_substr($packageVersion, \mb_strpos($packageVersion, '@') + 1);
             }
         } catch (\Exception $e) {
         }

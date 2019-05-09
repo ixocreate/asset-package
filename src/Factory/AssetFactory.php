@@ -45,7 +45,7 @@ final class AssetFactory implements FactoryInterface
         $assetConfig = $container->get(Config::class)->get('asset', []);
 
         if (empty($assetConfig['url'])) {
-            throw new InvalidArgumentException("no Url set in Config");
+            throw new InvalidArgumentException("No Asset Url set in Config");
         }
 
         $urls = $this->getUrls($assetConfig['url']);
