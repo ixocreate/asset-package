@@ -58,4 +58,23 @@ class VersionTest extends TestCase
         $versionId = $version->getVersion();
         $this->assertStringMatchesFormat('%x', $versionId);
     }
+
+    public function testValidFileversion()
+    {
+        $applicationConfiguratorDevFalse = new ApplicationConfigurator('/');
+        $applicationConfiguratorDevFalse->setDevelopment(false);
+        $applicationConfig = new ApplicationConfig($applicationConfiguratorDevFalse);
+        $version = new Version($applicationConfig, 'tests/misc/valid_versionfile.php');
+        $versionId = require 'tests/misc/valid_versionfile.php';
+        $this->assertSame($versionId, $version->getVersion());
+    }
+
+    public function testInvalidFileversion()
+    {
+        $applicationConfiguratorDevFalse = new ApplicationConfigurator('/');
+        $applicationConfiguratorDevFalse->setDevelopment(false);
+        $applicationConfig = new ApplicationConfig($applicationConfiguratorDevFalse);
+        $version = new Version($applicationConfig, 'tests/misc/invalid_versionfile.php');
+        $this->assertStringMatchesFormat('%x', $version->getVersion());
+    }
 }

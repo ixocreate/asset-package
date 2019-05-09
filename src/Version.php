@@ -25,13 +25,22 @@ final class Version
     private $version = null;
 
     /**
+     * @var string|null
+     */
+    private $versionFilename;
+
+    /**
      * Version constructor.
      *
      * @param ApplicationConfig $applicationConfig
+     * @param string|null $versionFilename
      */
-    public function __construct(ApplicationConfig $applicationConfig)
-    {
+    public function __construct(
+        ApplicationConfig $applicationConfig,
+        ?string $versionFilename = null
+    ) {
         $this->applicationConfig = $applicationConfig;
+        $this->versionFilename = $versionFilename;
     }
 
     /**
@@ -55,6 +64,13 @@ final class Version
             $this->version = \sha1(\uniqid());
 
             return;
+        }
+        if ($this->versionFilename !== null && \file_exists($this->versionFilename)) {
+            $this->version = require $this->versionFilename;
+
+            if (\mb_strlen($this->version) === 40) {
+                return;
+            }
         }
 
         try {
