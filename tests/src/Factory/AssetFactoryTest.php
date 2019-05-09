@@ -79,6 +79,16 @@ class AssetFactoryTest extends TestCase
         $this->assertStringEndsWith('?v=test', $asset->getUrl('test'));
     }
 
+    public function testFilesVersion()
+    {
+        $configUrl = ['asset' => ['url' => ['assets'], 'format' => '%1$s?v=%2$s', 'versionFilename' => 'tests/misc/valid_versionfile.php']];
+
+        $assetFactory = new AssetFactory();
+        /** @var  Asset $asset */
+        $asset = $assetFactory($this->serviceManagerMock($configUrl, false), 'Test');
+        $this->assertStringEndsWith('?v=' . require 'tests/misc/valid_versionfile.php', $asset->getUrl('test'));
+    }
+
     public function testConfigMoreUrl()
     {
         $configUrl = ['asset' => ['url' => ['assets', 'test']]];
@@ -90,14 +100,16 @@ class AssetFactoryTest extends TestCase
         $this->assertInstanceOf(Asset::class, $asset);
     }
 
-    private function serviceManagerMock(array $configUrl)
+    private function serviceManagerMock(array $configUrl, $developmentMode = true)
     {
         $serviceManagerMock = $this->createMock(ServiceManagerInterface::class);
         $serviceManagerMock->method('get')
-            ->willReturnCallback(function ($request) use ($configUrl) {
+            ->willReturnCallback(function ($request) use ($configUrl, $developmentMode) {
                 switch ($request) {
                     case ApplicationConfig::class:
-                        return new ApplicationConfig(new ApplicationConfigurator('/'));
+                        $applicationConfigurator = new ApplicationConfigurator('/');
+                        $applicationConfigurator->setDevelopment($developmentMode);
+                        return new ApplicationConfig($applicationConfigurator);
                     case ApplicationUri::class:
                         $applicationUriConfigurator = new ApplicationUriConfigurator();
                         $applicationUriConfigurator->setMainUri('https://example.com');

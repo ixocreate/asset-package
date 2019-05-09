@@ -38,11 +38,16 @@ final class AssetFactory implements FactoryInterface
      */
     public function __invoke(ServiceManagerInterface $container, $requestedName, array $options = null)
     {
-        $version = new Version($container->get(ApplicationConfig::class));
-        $this->projectUri = $container->get(ApplicationUri::class);
-
         $packages = new Packages();
         $assetConfig = $container->get(Config::class)->get('asset', []);
+
+        $filename = null;
+        if (!empty($assetConfig['versionFilename'])) {
+            $filename = $assetConfig['versionFilename'];
+        }
+
+        $version = new Version($container->get(ApplicationConfig::class), $filename);
+        $this->projectUri = $container->get(ApplicationUri::class);
 
         if (empty($assetConfig['url'])) {
             throw new InvalidArgumentException("No Asset Url set in Config");

@@ -17,7 +17,7 @@ use Symfony\Component\Asset\Packages;
 class AssetExtensionTest extends TestCase
 {
     /**
-     * @covers \Ixocreate\Asset\AssetExtension
+     * @covers \Ixocreate\Asset\Template\AssetExtension
      */
     public function testAssetExtension()
     {
