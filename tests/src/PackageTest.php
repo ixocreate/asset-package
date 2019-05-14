@@ -45,7 +45,7 @@ class PackageTest extends TestCase
         $package->boot($serviceManager);
 
         $this->assertNull($package->getConfigProvider());
-        $this->assertSame([BootstrapItem::class],$package->getBootstrapItems());
+        $this->assertSame([BootstrapItem::class], $package->getBootstrapItems());
         $this->assertDirectoryExists($package->getBootstrapDirectory());
         $this->assertNull($package->getConfigDirectory());
         $this->assertNull($package->getDependencies());

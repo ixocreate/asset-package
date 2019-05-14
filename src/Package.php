@@ -36,7 +36,7 @@ final class Package implements PackageInterface
     public function getBootstrapItems(): ?array
     {
         return [
-            BootstrapItem::class
+            BootstrapItem::class,
         ];
     }
 

@@ -1,4 +1,10 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
+ * @license MIT License
+ */
+
 declare(strict_types=1);
 
 namespace Ixocreate\Asset\Strategy;
@@ -19,7 +25,7 @@ final class ComposerStrategy implements StrategyInterface
     public function __construct(int $length)
     {
         if ($length > 40) {
-            throw new \InvalidArgumentException("Length can't be greater than 40 in ". ComposerVersionStrategy::class);
+            throw new \InvalidArgumentException("Length can't be greater than 40 in " . ComposerVersionStrategy::class);
         }
 
         if ($length < 3) {
@@ -32,8 +38,6 @@ final class ComposerStrategy implements StrategyInterface
         }
 
         $this->version = \mb_substr($this->version, 0, $length);
-
-
     }
 
     /**
