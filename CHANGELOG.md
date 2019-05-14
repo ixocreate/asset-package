@@ -1,6 +1,10 @@
 # Release Notes
 
 ## [Unreleased](https://github.com/ixocreate/asset-package/compare/0.1.4...develop)
+### Added
+- Support for configurators
+### Removed
+- ConfigProvider
 
 ## [v0.1.4 (2019-05-09)](https://github.com/ixocreate/asset-package/compare/0.1.3...0.1.4)
 ### Changed
