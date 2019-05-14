@@ -11,22 +11,23 @@ namespace Ixocreate\Test\Asset;
 
 use Ixocreate\Application\ApplicationConfig;
 use Ixocreate\Application\ApplicationConfigurator;
-use Ixocreate\Application\Config\Config;
 use Ixocreate\Application\Uri\ApplicationUri;
 use Ixocreate\Application\Uri\ApplicationUriConfigurator;
 use Ixocreate\Asset\Asset;
+use Ixocreate\Asset\AssetConfig;
+use Ixocreate\Asset\AssetConfigurator;
 use Ixocreate\Asset\Factory\AssetFactory;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \Ixocreate\Asset\Factory\AssetFactory
+ */
 class AssetFactoryTest extends TestCase
 {
-    /**
-     * @covers \Ixocreate\Asset\Factory\AssetFactory::__invoke
-     */
     public function testInvoke()
     {
-        $configUrl = ['asset' => ['url' => 'assets']];
+        $configUrl = ['url' => 'assets'];
 
         $assetFactory = new AssetFactory();
         /** @var  Asset $asset */
@@ -37,19 +38,19 @@ class AssetFactoryTest extends TestCase
 
     public function testInvokeAbsolutUrl()
     {
-        $configUrl = ['asset' => ['url' => 'https://spielwiese.ixocreate.com/']];
+        $configUrl = ['url' => 'https://try.ixocreate.com/'];
 
         $assetFactory = new AssetFactory();
         /** @var  Asset $asset */
         $asset = $assetFactory($this->serviceManagerMock($configUrl), 'Test');
 
-        $url = \mb_substr($asset->getUrl('test'), 0, 37);
-        $this->assertSame('https://spielwiese.ixocreate.com/test', $url);
+        $url = \mb_substr($asset->getUrl('test'), 0, 30);
+        $this->assertSame('https://try.ixocreate.com/test', $url);
     }
 
     public function testInvokeNoArray()
     {
-        $configUrl = ['asset' => ['url' => 'assets']];
+        $configUrl = ['url' => 'assets'];
 
         $assetFactory = new AssetFactory();
         /** @var  Asset $asset */
@@ -60,7 +61,7 @@ class AssetFactoryTest extends TestCase
 
     public function testConfigEmpty()
     {
-        $configUrl = ['asset' => ['url' => '']];
+        $configUrl = [];
 
         $assetFactory = new AssetFactory();
 
@@ -70,7 +71,7 @@ class AssetFactoryTest extends TestCase
 
     public function testConfigFormatChange()
     {
-        $configUrl = ['asset' => ['url' => ['assets'], 'format' => '%2$s?v=%1$s']];
+        $configUrl = ['url' => ['assets'], 'format' => '%2$s?v=%1$s'];
 
         $assetFactory = new AssetFactory();
         /** @var  Asset $asset */
@@ -79,19 +80,9 @@ class AssetFactoryTest extends TestCase
         $this->assertStringEndsWith('?v=test', $asset->getUrl('test'));
     }
 
-    public function testFilesVersion()
-    {
-        $configUrl = ['asset' => ['url' => ['assets'], 'format' => '%1$s?v=%2$s', 'versionFilename' => 'tests/misc/valid_versionfile.php']];
-
-        $assetFactory = new AssetFactory();
-        /** @var  Asset $asset */
-        $asset = $assetFactory($this->serviceManagerMock($configUrl, false), 'Test');
-        $this->assertStringEndsWith('?v=' . require 'tests/misc/valid_versionfile.php', $asset->getUrl('test'));
-    }
-
     public function testConfigMoreUrl()
     {
-        $configUrl = ['asset' => ['url' => ['assets', 'test']]];
+        $configUrl = ['url' => ['assets', 'test']];
 
         $assetFactory = new AssetFactory();
         /** @var  Asset $asset */
@@ -114,8 +105,21 @@ class AssetFactoryTest extends TestCase
                         $applicationUriConfigurator = new ApplicationUriConfigurator();
                         $applicationUriConfigurator->setMainUri('https://example.com');
                         return new ApplicationUri($applicationUriConfigurator);
-                    case Config::class:
-                        return new Config($configUrl);
+                    case AssetConfig::class:
+                        $assetConfigurator = new AssetConfigurator();
+                        if (isset($configUrl['url'])) {
+                            if (\is_string($configUrl['url'])) {
+                                $assetConfigurator->addUrl($configUrl['url']);
+                            } elseif (\is_array($configUrl['url'])) {
+                                $assetConfigurator->setUrls($configUrl['url']);
+                            }
+                        }
+
+                        if (isset($configUrl['format'])) {
+                            $assetConfigurator->setFormat($configUrl['format']);
+                        }
+
+                        return new AssetConfig($assetConfigurator);
                 }
                 return null;
             });

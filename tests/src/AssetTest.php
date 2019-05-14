@@ -13,19 +13,11 @@ use Ixocreate\Asset\Asset;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Asset\Packages;
 
+/**
+ * @covers \Ixocreate\Asset\Asset
+ */
 class AssetTest extends TestCase
 {
-    /**
-     * @covers \Ixocreate\Asset\Asset::__construct
-     */
-    public function testAsset()
-    {
-        $stub = $this->createMock(Packages::class);
-        $asset = new Asset($stub);
-
-        $this->assertTrue(true);
-    }
-
     public function testGetUrl()
     {
         $stub = $this->createMock(Packages::class);
