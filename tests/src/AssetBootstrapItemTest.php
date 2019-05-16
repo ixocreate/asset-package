@@ -10,17 +10,17 @@ declare(strict_types=1);
 namespace Ixocreate\Test\Asset;
 
 use Ixocreate\Asset\AssetConfigurator;
-use Ixocreate\Asset\BootstrapItem;
+use Ixocreate\Asset\AssetBootstrapItem;
 use PHPUnit\Framework\TestCase;
 
-class BootstrapItemTest extends TestCase
+class AssetBootstrapItemTest extends TestCase
 {
     /**
-     * @covers \Ixocreate\Asset\BootstrapItem
+     * @covers \Ixocreate\Asset\AssetBootstrapItem
      */
     public function testBootstrapItem()
     {
-        $bootstrapItem = new BootstrapItem();
+        $bootstrapItem = new AssetBootstrapItem();
         $this->assertSame('asset', $bootstrapItem->getVariableName());
         $this->assertSame('asset.php', $bootstrapItem->getFileName());
         $this->assertInstanceOf(AssetConfigurator::class, $bootstrapItem->getConfigurator());

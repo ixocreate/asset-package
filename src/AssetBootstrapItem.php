@@ -12,7 +12,7 @@ namespace Ixocreate\Asset;
 use Ixocreate\Application\Bootstrap\BootstrapItemInterface;
 use Ixocreate\Application\Configurator\ConfiguratorInterface;
 
-final class BootstrapItem implements BootstrapItemInterface
+final class AssetBootstrapItem implements BootstrapItemInterface
 {
     /**
      * @return mixed

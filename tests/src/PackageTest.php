@@ -11,7 +11,7 @@ namespace Ixocreate\Test\Asset;
 
 use Ixocreate\Application\Configurator\ConfiguratorRegistryInterface;
 use Ixocreate\Application\Service\ServiceRegistryInterface;
-use Ixocreate\Asset\BootstrapItem;
+use Ixocreate\Asset\AssetBootstrapItem;
 use Ixocreate\Asset\Package;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 use PHPUnit\Framework\TestCase;
@@ -45,7 +45,7 @@ class PackageTest extends TestCase
         $package->boot($serviceManager);
 
         $this->assertNull($package->getConfigProvider());
-        $this->assertSame([BootstrapItem::class], $package->getBootstrapItems());
+        $this->assertSame([AssetBootstrapItem::class], $package->getBootstrapItems());
         $this->assertDirectoryExists($package->getBootstrapDirectory());
         $this->assertNull($package->getConfigDirectory());
         $this->assertNull($package->getDependencies());
