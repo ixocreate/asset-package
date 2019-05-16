@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Ixocreate\Test\Asset;
 
-use Ixocreate\Asset\AssetConfigurator;
 use Ixocreate\Asset\AssetBootstrapItem;
+use Ixocreate\Asset\AssetConfigurator;
 use PHPUnit\Framework\TestCase;
 
 class AssetBootstrapItemTest extends TestCase
