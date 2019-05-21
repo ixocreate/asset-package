@@ -6,4 +6,4 @@
  */
 
 declare(strict_types=1);
-return "invalid";
+return "12";

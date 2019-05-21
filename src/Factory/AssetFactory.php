@@ -9,11 +9,9 @@ declare(strict_types=1);
 
 namespace Ixocreate\Asset\Factory;
 
-use Ixocreate\Application\ApplicationConfig;
-use Ixocreate\Application\Config\Config;
 use Ixocreate\Application\Uri\ApplicationUri;
 use Ixocreate\Asset\Asset;
-use Ixocreate\Asset\Version;
+use Ixocreate\Asset\AssetConfig;
 use Ixocreate\ServiceManager\FactoryInterface;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 use Symfony\Component\Asset\Packages;
@@ -38,29 +36,26 @@ final class AssetFactory implements FactoryInterface
      */
     public function __invoke(ServiceManagerInterface $container, $requestedName, array $options = null)
     {
-        $packages = new Packages();
-        $assetConfig = $container->get(Config::class)->get('asset', []);
+        /** @var AssetConfig $assetConfig */
+        $assetConfig = $container->get(AssetConfig::class);
 
-        $filename = null;
-        if (!empty($assetConfig['versionFilename'])) {
-            $filename = $assetConfig['versionFilename'];
-        }
-
-        $version = new Version($container->get(ApplicationConfig::class), $filename);
         $this->projectUri = $container->get(ApplicationUri::class);
 
-        if (empty($assetConfig['url'])) {
+        if (empty($assetConfig->urls())) {
             throw new InvalidArgumentException("No Asset Url set in Config");
         }
 
-        $urls = $this->getUrls($assetConfig['url']);
-        $format = (!empty($assetConfig['format'])) ? $assetConfig['format'] : '%1$s?v=%2$s';
+        $urls = $this->getUrls($assetConfig->urls());
+        $strategy = $assetConfig->strategy()->create($container);
 
         $urlPackage = new UrlPackage(
             $urls,
-            new StaticVersionStrategy($version->getVersion(), $format)
+            new StaticVersionStrategy($strategy->version(), $assetConfig->format())
         );
+
+        $packages = new Packages();
         $packages->setDefaultPackage($urlPackage);
+
         return new Asset($packages);
     }
 
@@ -68,12 +63,8 @@ final class AssetFactory implements FactoryInterface
      * @param $urls
      * @return array
      */
-    private function getUrls($urls): array
+    private function getUrls(array $urls): array
     {
-        if (!\is_array($urls)) {
-            $urls = (array)$urls;
-        }
-
         $result = [];
         foreach ($urls as $url) {
             if ($this->isAbsoluteUrl($url)) {
