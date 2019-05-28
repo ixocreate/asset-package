@@ -19,9 +19,8 @@
     },
     "require-dev": {
         "ixocreate/coding-standard": "^2.0",
-        "ocramius/package-versions": "^1.4",
-        "php-coveralls/php-coveralls": "^2.1",
-        "phpunit/phpunit": "^7.0"
+        "ixocreate/test": "dev-develop",
+        "ocramius/package-versions": "^1.4"
     },
     "autoload": {
         "psr-4": {
