@@ -1,7 +1,7 @@
 <?php
 /**
  * @link https://github.com/ixocreate
- * @copyright IXOCREATE GmbH
+ * @copyright IXOLIT GmbH
  * @license MIT License
  */
 
@@ -34,6 +34,10 @@ final class Asset
      */
     public function getUrl($path): string
     {
-        return $this->packages->getUrl('/' . \ltrim($path, '/'));
+        /**
+         * Do not prefix absolute urls
+         * This aligns with symfony asset package behaviour
+         */
+        return $this->packages->getUrl($path);
     }
 }
