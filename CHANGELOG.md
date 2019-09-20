@@ -1,6 +1,14 @@
 # Release Notes
 
-## [Unreleased](https://github.com/ixocreate/asset-package/compare/0.2.0...develop)
+## [Unreleased](https://github.com/ixocreate/asset-package/compare/0.2.1...develop)
+
+## [v0.2.1 (2019-09-20)](https://github.com/ixocreate/asset-package/compare/0.2.0...0.2.1)
+### Changed
+- Allow absolute URLs
+
+## [v0.1.5 (2019-09-20)](https://github.com/ixocreate/asset-package/compare/0.1.4...0.1.5)
+### Changed
+- Allow absolute URLs
 
 ## [v0.2.0 (2019-05-21)](https://github.com/ixocreate/asset-package/compare/0.1.4...0.2.0)
 ### Added
