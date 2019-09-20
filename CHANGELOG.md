@@ -2,6 +2,10 @@
 
 ## [Unreleased](https://github.com/ixocreate/asset-package/compare/0.1.4...develop)
 
+## [v0.1.5 (2019-09-20)](https://github.com/ixocreate/asset-package/compare/0.1.4...0.1.5)
+### Changed
+- Allow absolute URLs
+
 ## [v0.1.4 (2019-05-09)](https://github.com/ixocreate/asset-package/compare/0.1.3...0.1.4)
 ### Changed
 - Added filebased version generation
