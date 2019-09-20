@@ -22,18 +22,29 @@ class AssetTest extends TestCase
     {
         $stub = $this->createMock(Packages::class);
 
-
         $stub->method('getUrl')
             ->willReturnCallback(function ($path) {
-                return 'https://phpunit.de/manual/6.5' . $path;
+                /**
+                 * Do not prefix absolute urls
+                 * This aligns with symfony asset package behaviour
+                 */
+                if (\mb_strpos($path, 'http') === 0) {
+                    return $path;
+                }
+                return 'https://ixocreate.test/' . \ltrim($path, '/');
             });
 
 
         $asset = new Asset($stub);
 
-        $mitSlash = $asset->getUrl('/trsttstt');
-        $ohneSlash = $asset->getUrl('trsttstt');
-        $this->assertSame('https://phpunit.de/manual/6.5/trsttstt', $mitSlash);
-        $this->assertSame('https://phpunit.de/manual/6.5/trsttstt', $ohneSlash);
+        $this->assertSame('https://ixocreate.test/assets', $asset->getUrl('/assets'));
+
+        /**
+         * Asset::getUrl() does not automatically prefix paths
+         * This should be done in the asset url configuration
+         */
+        $this->assertSame('https://ixocreate.test/assets', $asset->getUrl('assets'));
+
+        $this->assertSame('https://ixocreate.test/assets', $asset->getUrl('https://ixocreate.test/assets'));
     }
 }
