@@ -34,6 +34,10 @@ final class Asset
      */
     public function getUrl($path): string
     {
-        return $this->packages->getUrl('/' . \ltrim($path, '/'));
+        /**
+         * Do not prefix absolute urls
+         * This aligns with symfony asset package behaviour
+         */
+        return $this->packages->getUrl($path);
     }
 }
