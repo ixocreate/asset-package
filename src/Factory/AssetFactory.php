@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Asset\Factory;
 
+use Ixocreate\Application\Exception\InvalidArgumentException;
 use Ixocreate\Application\Uri\ApplicationUri;
 use Ixocreate\Asset\Asset;
 use Ixocreate\Asset\AssetConfig;
@@ -17,7 +18,6 @@ use Ixocreate\ServiceManager\ServiceManagerInterface;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Asset\UrlPackage;
 use Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy;
-use Zend\ServiceManager\Exception\InvalidArgumentException;
 
 final class AssetFactory implements FactoryInterface
 {
@@ -42,7 +42,7 @@ final class AssetFactory implements FactoryInterface
         $this->projectUri = $container->get(ApplicationUri::class);
 
         if (empty($assetConfig->urls())) {
-            throw new InvalidArgumentException("No Asset Url set in Config");
+            throw new InvalidArgumentException('No Asset Url set in Config');
         }
 
         $urls = $this->getUrls($assetConfig->urls());

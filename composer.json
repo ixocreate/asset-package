@@ -11,15 +11,17 @@
             "role": "Developer"
         }
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
-        "php": "^7.1",
-        "ixocreate/application": "~0.1.0|~0.2.0",
-        "ixocreate/template-package": "^0.1",
-        "symfony/asset": "^4.1"
+        "php": "^7.2 || ^8.0",
+        "ixocreate/application": "dev-develop",
+        "ixocreate/template-package": "dev-develop",
+        "symfony/asset": "^5.1"
     },
     "require-dev": {
         "ixocreate/coding-standard": "^2.0",
-        "ixocreate/test": "dev-develop",
+        "ixocreate/test": "^0.1",
         "ocramius/package-versions": "^1.4"
     },
     "autoload": {
