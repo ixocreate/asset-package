@@ -20,9 +20,9 @@
         "symfony/asset": "^5.1"
     },
     "require-dev": {
+        "composer-runtime-api": "^2.0.0",
         "ixocreate/coding-standard": "^2.0",
-        "ixocreate/test": "^0.1",
-        "ocramius/package-versions": "^1.4"
+        "ixocreate/test": "^0.1"
     },
     "autoload": {
         "psr-4": {
