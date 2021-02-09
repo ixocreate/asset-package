@@ -16,13 +16,21 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Ixocreate\Asset\Strategy\Option\ComposerOption
+ *
  */
 final class ComposerOptionTest extends TestCase
 {
+    public function setUp(): void
+    {
+        if (!\class_exists('Composer\InstalledVersions')) {
+            $this->markTestSkipped('composer 2 required for this strategy.');
+        }
+    }
+
     private function reflectionTestLength(int $length, ComposerOption $composerOption)
     {
         $reflection = new \ReflectionClass($composerOption);
-        $property = $reflection->getProperty("length");
+        $property = $reflection->getProperty('length');
         $property->setAccessible(true);
         $this->assertSame($length, $property->getValue($composerOption));
     }
