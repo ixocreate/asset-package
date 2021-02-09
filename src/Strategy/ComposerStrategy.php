@@ -32,9 +32,9 @@ final class ComposerStrategy implements StrategyInterface
             throw new \InvalidArgumentException("Length must be 3 or greater");
         }
 
-        $this->version = InstalledVersions::getVersion(InstalledVersions::getRootPackage());
-        if (\mb_strpos($this->version, '@') !== false) {
-            $this->version = \mb_substr($this->version, \mb_strpos($this->version, '@') + 1);
+        $this->version = InstalledVersions::getReference(InstalledVersions::getRootPackage()['name']);
+        if ($this->version === null) {
+            $this->version = InstalledVersions::getVersion(InstalledVersions::getRootPackage()['name']);
         }
 
         $this->version = \mb_substr($this->version, 0, $length);
