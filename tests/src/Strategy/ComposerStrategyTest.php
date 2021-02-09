@@ -17,6 +17,13 @@ use PHPUnit\Framework\TestCase;
  */
 class ComposerStrategyTest extends TestCase
 {
+    public function setUp(): void
+    {
+        if (!\class_exists('Composer\InstalledVersions')) {
+            $this->markTestSkipped('composer 2 required for this strategy.');
+        }
+    }
+
     public function testVersion()
     {
         $strategy = new ComposerStrategy(10);
